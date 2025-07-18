@@ -8,6 +8,13 @@ authors = ["Your Name <you@example.com>"]
 python = ">=3.10.0,<3.12"
 fastapi = "^0.112.0"
 uvicorn = "0.23.2"
+sqlmodel = "^0.0.24"
+pydantic = "^2.11.7"
+sqlalchemy = "^2.0.41"
+passlib = "^1.7.4"
+typing-extensions = "^4.14.1"
+jose = "^1.0.0"
+python-dotenv = "^1.1.1"
 
 [tool.pyright]
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md
