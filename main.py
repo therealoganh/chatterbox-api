@@ -29,13 +29,17 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login-form")
 
 raw_path = os.getenv("DATABASE_URL", "./chatterbox.db")
 
-# If it's a plain file path like "/tmp/chatterbox.db"
+# Ensure proper URL format
 if not raw_path.startswith("sqlite:///"):
-    sqlite_file = f"sqlite:///{raw_path}"
+    db_path = raw_path
+    raw_path = f"sqlite:///{raw_path}"
 else:
-    sqlite_file = raw_path
+    db_path = raw_path.replace("sqlite:///", "")
 
-engine = create_engine(sqlite_file, echo=True)
+# ✅ Ensure the directory exists
+os.makedirs(os.path.dirname(db_path), exist_ok=True)
+
+engine = create_engine(raw_path, echo=True)
 
 
 def create_db():
