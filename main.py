@@ -36,8 +36,6 @@ else:
     sqlite_file = raw_path
 
 engine = create_engine(sqlite_file, echo=True)
-chatterbox.db")
-engine = create_engine(sqlite_file, echo=True)
 
 
 def create_db():
