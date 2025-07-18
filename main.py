@@ -28,7 +28,7 @@ from sqlmodel import Session, SQLModel, create_engine, select
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login-form")
 
 sqlite_file = os.getenv("DATABASE_URL", "sqlite:///./chatterbox.db")
-engine = create_engine(f"sqlite:///{sqlite_file}", echo=True)
+engine = create_engine(sqlite_file, echo=True)
 
 
 def create_db():
